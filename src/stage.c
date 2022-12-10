@@ -50,6 +50,7 @@ fixed_t fade, fadespd;
 static u32 Sounds[10];
 
 #include "character/bf.h"
+#include "character/loggo.h"
 #include "character/dad.h"
 #include "character/gf.h"
 

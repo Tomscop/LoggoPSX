@@ -13,6 +13,7 @@ all: \
 	iso/stage/count.tim \
 	iso/bf/main.arc \
 	iso/bf/dead.tim \
+	iso/loggo/main.arc \
 	iso/dad/main.arc \
 	iso/gf/main.arc \
 	iso/gf/tut.arc \
@@ -30,6 +31,9 @@ iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu
 
 # BF
 iso/bf/main.arc: iso/bf/bf0.tim iso/bf/bf1.tim iso/bf/bf2.tim iso/bf/bf3.tim iso/bf/bf4.tim iso/bf/bf5.tim iso/bf/bf6.tim
+
+# Loggo
+iso/loggo/main.arc: iso/loggo/idle0.tim iso/loggo/idle1.tim iso/loggo/left.tim iso/loggo/down.tim iso/loggo/up0.tim iso/loggo/up1.tim iso/loggo/right.tim
 
 # Dad
 iso/dad/main.arc: iso/dad/idle0.tim iso/dad/idle1.tim iso/dad/left.tim iso/dad/down.tim iso/dad/up.tim iso/dad/right.tim
