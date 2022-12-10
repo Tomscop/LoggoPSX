@@ -1,0 +1,42 @@
+all: \
+	iso/menu/menu.arc \
+	iso/menu/loading.tim \
+	iso/icon16.tim \
+	iso/font/font.tim \
+	iso/stage/hud0.tim \
+	iso/stage/hud1-1.tim \
+	iso/stage/hud1-2.tim \
+	iso/stage/hud1-3.tim \
+	iso/stage/hud1-4.tim \
+	iso/stage/hud1-5.tim \
+	iso/stage/hud1-6.tim \
+	iso/stage/count.tim \
+	iso/bf/main.arc \
+	iso/bf/dead.tim \
+	iso/dad/main.arc \
+	iso/gf/main.arc \
+	iso/gf/tut.arc \
+	iso/gf/speaker.tim \
+	iso/week1/back.arc \
+
+iso/%.tim: iso/%.png
+	tools/funkintimconv/funkintimconv $@ $<
+
+iso/%.arc:
+	tools/funkinarcpak/funkinarcpak $@ $^
+
+# Menu
+iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim
+
+# BF
+iso/bf/main.arc: iso/bf/bf0.tim iso/bf/bf1.tim iso/bf/bf2.tim iso/bf/bf3.tim iso/bf/bf4.tim iso/bf/bf5.tim iso/bf/bf6.tim
+
+# Dad
+iso/dad/main.arc: iso/dad/idle0.tim iso/dad/idle1.tim iso/dad/left.tim iso/dad/down.tim iso/dad/up.tim iso/dad/right.tim
+
+# GF
+iso/gf/main.arc: iso/gf/gf0.tim iso/gf/gf1.tim iso/gf/gf2.tim
+iso/gf/tut.arc: iso/gf/tut0.tim iso/gf/tut1.tim
+
+# Week 1
+iso/week1/back.arc: iso/week1/back0.tim iso/week1/back1.tim

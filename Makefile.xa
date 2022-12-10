@@ -1,0 +1,15 @@
+all: \
+  iso/music/menu.xa \
+  iso/music/week1a.xa \
+  iso/music/week1b.xa \
+
+# XA converts
+iso/music/%.xa: iso/music/%.ogg
+	tools/psxavenc/psxavenc -f 37800 -t xa -b 4 -c 2 -F 1 -C 0 $< $@
+iso/music/%.xa:
+	tools/xainterleave/xainterleave $@
+
+# XA interleaves
+iso/music/menu.xa: iso/music/freaky.xa iso/music/gameover.xa
+iso/music/week1a.xa: iso/music/christmas/Inst.xa iso/music/christmas/Vocals.xa iso/music/christmas-hard/Inst.xa iso/music/christmas-hard/Vocals.xa
+iso/music/week1b.xa: iso/music/spookpostor/Inst.xa iso/music/spookpostor/Vocals.xa iso/music/grinch/Inst.xa iso/music/grinch/Vocals.xa

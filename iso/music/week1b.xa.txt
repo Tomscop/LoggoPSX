@@ -1,0 +1,4 @@
+1 xa spookpostor/Vocals.xa 1 0
+1 xa spookpostor/Inst.xa 1 1
+1 xa grinch/Vocals.xa 1 2
+1 xa grinch/Inst.xa 1 3

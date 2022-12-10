@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Defines the ISO project -->
+<iso_project image_name="secretchristmasport.bin" cue_sheet="secretchristmasport.cue" no_xa="0">
+	<!-- Data track -->
+	<track type="data">
+		<!-- Identifiers -->
+		<identifiers
+			system        = "PLAYSTATION"
+			application   = "PLAYSTATION"
+			volume        = "PSXFUNKIN"
+			volume_set    = "PSXFUNKIN"
+			publisher     = "CUCKYDEV"
+			copyright     = "NINJAMUFFIN99"
+		/>
+		<license file="licensea.dat"/>
+		
+		<!-- Data directory tree -->
+		<directory_tree>
+			<!-- System -->
+			<file name = "system.cnf" type = "data" source = "iso/system.cnf"/>
+			<file name = "SCUS_010.31" type = "data" source = "funkin.ps-exe"/>
+			
+			<!-- Menu assets -->
+			<dir name = "menu">
+				<file name = "loading.tim" type = "data" source = "iso/menu/loading.tim"/>
+				<file name = "menu.arc" type = "data" source = "iso/menu/menu.arc"/>
+			</dir>
+			
+			<!-- Fonts -->
+			<dir name = "font">
+				<file name = "font.tim" type = "data" source = "iso/font/font.tim"/>
+			</dir>
+			
+			<!-- Stage assets -->
+			<dir name = "stage">
+				<file name = "hud0.tim" type = "data" source = "iso/stage/hud0.tim"/>
+				<file name = "hud1-1.tim" type = "data" source = "iso/stage/hud1-1.tim"/>
+				<file name = "hud1-2.tim" type = "data" source = "iso/stage/hud1-2.tim"/>
+				<file name = "hud1-3.tim" type = "data" source = "iso/stage/hud1-3.tim"/>
+				<file name = "hud1-4.tim" type = "data" source = "iso/stage/hud1-4.tim"/>
+				<file name = "hud1-5.tim" type = "data" source = "iso/stage/hud1-5.tim"/>
+				<file name = "hud1-6.tim" type = "data" source = "iso/stage/hud1-6.tim"/>
+				<file name = "count.tim" type = "data" source = "iso/stage/count.tim"/>
+			</dir>
+			
+			<!-- Week 1 assets -->
+			<dir name = "week1">
+				<!-- Background art -->
+				<file name = "back.arc" type = "data" source = "iso/week1/back.arc"/>
+				
+				<!-- Christmas charts -->
+				<file name = "1.1e.cht" type = "data" source = "iso/chart/christmas-easy.json.cht"/>
+				<file name = "1.1n.cht" type = "data" source = "iso/chart/christmas.json.cht"/>
+				<file name = "1.2h.cht" type = "data" source = "iso/chart/christmas-hard.json.cht"/>
+				<!-- Spookposter charts -->
+				<file name = "1.3e.cht" type = "data" source = "iso/chart/spookpostor-easy.json.cht"/>
+				<file name = "1.3n.cht" type = "data" source = "iso/chart/spookpostor.json.cht"/>
+				<file name = "1.3h.cht" type = "data" source = "iso/chart/spookpostor-hard.json.cht"/>
+				<!-- Grinch charts -->
+				<file name = "1.4e.cht" type = "data" source = "iso/chart/grinch-easy.json.cht"/>
+				<file name = "1.4n.cht" type = "data" source = "iso/chart/grinch.json.cht"/>
+				<file name = "1.4h.cht" type = "data" source = "iso/chart/grinch-hard.json.cht"/>
+			</dir>
+		
+			<!-- Character assets -->
+			<dir name = "char">
+				<!-- Boyfriend assets -->
+				<file name = "bf.arc" type = "data" source = "iso/bf/main.arc"/>
+				<file name = "dead.tim" type = "data" source = "iso/bf/dead.tim"/>
+				
+				<!-- Dad assets -->
+				<file name = "dad.arc" type = "data" source = "iso/dad/main.arc"/>
+
+				<!-- Girlfriend assets -->
+				<file name = "gf.arc" type = "data" source = "iso/gf/main.arc"/>
+				<file name = "gftut.arc" type = "data" source = "iso/gf/tut.arc"/>
+				<file name = "speaker.tim" type = "data" source = "iso/gf/speaker.tim"/>
+			</dir>
+		    
+			<!-- Sound effects -->
+			<dir name = "sounds">
+				<!-- Menu Sounds -->
+				<file name = "scroll.vag" type = "data" source = "iso/sounds/menu/scroll.VAG"/>
+				<file name = "confirm.vag" type = "data" source = "iso/sounds/menu/confirm.VAG"/>
+				<file name = "cancel.vag" type = "data" source = "iso/sounds/menu/cancel.VAG"/>
+				<!-- Stage Sounds -->
+				<file name = "intro0.vag" type = "data" source = "iso/sounds/stage/intro0.ogg.vag"/>
+				<file name = "intro1.vag" type = "data" source = "iso/sounds/stage/intro1.ogg.vag"/>
+				<file name = "intro2.vag" type = "data" source = "iso/sounds/stage/intro2.ogg.vag"/>
+				<file name = "intro3.vag" type = "data" source = "iso/sounds/stage/intro3.ogg.vag"/>
+				<!-- Other Sounds -->
+				<file name = "death.vag" type = "data" source = "iso/sounds/stage/death.ogg.vag"/>
+				<file name = "retry.vag" type = "data" source = "iso/sounds/stage/retry.ogg.vag"/>
+
+				<!-- Miss Sounds -->
+				<file name = "miss1.vag" type = "data" source = "iso/sounds/stage/miss1.VAG"/>
+				<file name = "miss2.vag" type = "data" source = "iso/sounds/stage/miss2.VAG"/>
+				<file name = "miss3.vag" type = "data" source = "iso/sounds/stage/miss3.VAG"/>
+			</dir>
+			
+			<!-- Music -->
+			<dir name = "music">
+				<file name = "menu.xa" type = "xa" source = "iso/music/menu.xa"/>
+				<dummy sectors="128"/>
+				<file name = "week1a.xa" type = "xa" source = "iso/music/week1a.xa"/>
+				<dummy sectors="128"/>
+				<file name = "week1b.xa" type = "xa" source = "iso/music/week1b.xa"/>
+				<dummy sectors="128"/>
+			</dir>
+			
+			<!-- Dummy sectors -->
+			<dummy sectors="1024"/>
+		</directory_tree>
+	</track>
+</iso_project>
