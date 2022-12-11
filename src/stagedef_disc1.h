@@ -1,10 +1,10 @@
 	{ //StageId_1_1 (Christmas)
 		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_BF_New,    FIXED_DEC(30,1),  FIXED_DEC(-35,1)},
         {NULL},
 		{Char_Loggo_New, FIXED_DEC(-162,1),  FIXED_DEC(-15,1)},
         {NULL},
-		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
+		{NULL},
 		
 		//Stage background
 		Back_Week1_New,
@@ -17,11 +17,11 @@
 	},
 	{ //StageId_1_2 (Christmas Hard)
 		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_BF_New,    FIXED_DEC(30,1),  FIXED_DEC(-35,1)},
         {NULL},
 		{Char_Loggo_New, FIXED_DEC(-162,1),  FIXED_DEC(-15,1)},
         {NULL},
-		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
+		{NULL},
 		
 		//Stage background
 		Back_Week1_New,
@@ -34,11 +34,11 @@
 	},
 	{ //StageId_1_3 (Spookpostor)
 		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_BF_New,    FIXED_DEC(30,1),  FIXED_DEC(-35,1)},
         {NULL},
 		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
         {NULL},
-		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
+		{NULL},
 		
 		//Stage background
 		Back_Week1_New,
@@ -51,11 +51,11 @@
 	},
 	{ //StageId_1_4 (Grinch)
 		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_BF_New,    FIXED_DEC(30,1),  FIXED_DEC(-35,1)},
         {NULL},
 		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
         {NULL},
-		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
+		{NULL},
 		
 		//Stage background
 		Back_Week1_New,
