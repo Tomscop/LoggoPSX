@@ -31,42 +31,14 @@ static u32 Sounds[3];
 static char scoredisp[30];
 //Menu messages
 static const char *funny_messages[][2] = {
-	{"PSX PORT BY CUCKYDEV", "YOU KNOW IT"},
-	{"PORTED BY CUCKYDEV", "WHAT YOU GONNA DO"},
-	{"FUNKIN", "FOREVER"},
-	{"WHAT THE HELL", "RITZ PSX"},
-	{"LIKE PARAPPA", "BUT COOLER"},
-	{"THE JAPI", "EL JAPI"},
-	{"PICO FUNNY", "PICO FUNNY"},
-	{"OPENGL BACKEND", "BY CLOWNACY"},
-	{"CUCKYFNF", "SETTING STANDARDS"},
-	{"lool", "inverted colours"},
-	{"NEVER LOOK AT", "THE ISSUE TRACKER"},
-	{"PSXDEV", "HOMEBREW"},
-	{"ZERO POINT ZERO TWO TWO EIGHT", "ONE FIVE NINE ONE ZERO FIVE"},
-	{"DOPE ASS GAME", "PLAYSTATION MAGAZINE"},
-	{"NEWGROUNDS", "FOREVER"},
-	{"NO FPU", "NO PROBLEM"},
-	{"OK OKAY", "WATCH THIS"},
-	{"ITS MORE MALICIOUS", "THAN ANYTHING"},
-	{"USE A CONTROLLER", "LOL"},
-	{"SNIPING THE KICKSTARTER", "HAHA"},
-	{"SHITS UNOFFICIAL", "NOT A PROBLEM"},
-	{"SYSCLK", "RANDOM SEED"},
-	{"THEY DIDNT HIT THE GOAL", "STOP"},
-	{"FCEFUWEFUETWHCFUEZDSLVNSP", "PQRYQWENQWKBVZLZSLDNSVPBM"},
-	{"THE FLOORS ARE", "THREE DIMENSIONAL"},
-	{"PSXFUNKIN BY CUCKYDEV", "SUCK IT DOWN"},
-	{"PLAYING ON EPSXE HUH", "YOURE THE PROBLEM"},
-	{"NEXT IN LINE", "ATARI"},
-	{"HAXEFLIXEL", "COME ON"},
-	{"HAHAHA", "I DONT CARE"},
-	{"GET ME TO STOP", "TRY"},
-	{"FNF MUKBANG GIF", "THATS UNRULY"},
-	{"OPEN SOURCE", "FOREVER"},
-	{"ITS A PORT", "ITS WORSE"},
-	{"WOW GATO", "WOW GATO"},
-	{"BALLS FISH", "BALLS FISH"},
+	{"PLAY THE MOD", "IN HARD"},
+	{"FNF FANS", "DONT SAY IT"},
+	{"SUMMER ALBUM", "NEVER PLAYABLE"},
+	{"AMONG", "BOY"},
+	{"LOGGOS BASICS", "IN HALLOWEEN"},
+	{"THE ORIGINS", "OF THIS CAT"},
+	{"BURGUNDY SAUCE", "TELL YOUR LOVED ONES"},
+	{"AMONGLY SUSMAN", "AWEOSME CREEPYPASTA"},
 };
 
 
@@ -154,7 +126,7 @@ static const char *Menu_LowerIf(const char *text, boolean lower)
 
 static void Menu_DrawBack(boolean flash, s32 scroll, u8 r0, u8 g0, u8 b0, u8 r1, u8 g1, u8 b1)
 {
-	RECT back_src = {0, 0, 255, 255};
+	RECT back_src = {0, 0, 255, 240};
 	RECT back_dst = {0, -scroll - screen.SCREEN_WIDEADD2, screen.SCREEN_WIDTH, screen.SCREEN_WIDTH * 4 / 5};
 	
 	if (flash || (animf_count & 4) == 0)
@@ -227,27 +199,15 @@ static void Menu_DrawWeek(const char *week, s32 x, s32 y)
 	//Draw label
 	if (week == NULL)
 	{
-		//Tutorial
+		//1
 		RECT label_src = {0, 0, 112, 32};
 		Gfx_BlitTex(&menu.tex_story, &label_src, x, y);
 	}
 	else
 	{
-		//Week
-		RECT label_src = {0, 32, 80, 32};
+		//2
+		RECT label_src = {0, 32, 112, 32};
 		Gfx_BlitTex(&menu.tex_story, &label_src, x, y);
-		
-		//Number
-		x += 80;
-		for (; *week != '\0'; week++)
-		{
-			//Draw number
-			u8 i = *week - '0';
-			
-			RECT num_src = {128 + ((i & 3) << 5), ((i >> 2) << 5), 32, 32};
-			Gfx_BlitTex(&menu.tex_story, &num_src, x, y);
-			x += 32;
-		}
 	}
 }
 
@@ -383,14 +343,11 @@ void Menu_Tick(void)
 				switch (beat)
 				{
 					case 3:
-						menu.font_bold.draw(&menu.font_bold, "PRESENT", screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 + 32, FontAlign_Center);
+						menu.font_bold.draw(&menu.font_bold, "PRESENTS", screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2, FontAlign_Center);
 				//Fallthrough
 					case 2:
 					case 1:
-						menu.font_bold.draw(&menu.font_bold, "NINJAMUFFIN",   screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 - 32, FontAlign_Center);
-						menu.font_bold.draw(&menu.font_bold, "PHANTOMARCADE", screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 - 16, FontAlign_Center);
-						menu.font_bold.draw(&menu.font_bold, "KAWAISPRITE",   screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2,      FontAlign_Center);
-						menu.font_bold.draw(&menu.font_bold, "EVILSKER",      screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 + 16, FontAlign_Center);
+						menu.font_bold.draw(&menu.font_bold, "LOGGO",   screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 - 16, FontAlign_Center);
 						break;
 					
 					case 7:
@@ -399,7 +356,7 @@ void Menu_Tick(void)
 				//Fallthrough
 					case 6:
 					case 5:
-						menu.font_bold.draw(&menu.font_bold, "IN ASSOCIATION", screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 - 64, FontAlign_Center);
+						menu.font_bold.draw(&menu.font_bold, "NOT ASSOCIATED", screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 - 64, FontAlign_Center);
 						menu.font_bold.draw(&menu.font_bold, "WITH",           screen.SCREEN_WIDTH2, screen.SCREEN_HEIGHT2 - 48, FontAlign_Center);
 						break;
 					
@@ -627,8 +584,8 @@ void Menu_Tick(void)
 			Menu_DrawBack(
 				menu.next_page == menu.page || menu.next_page == MenuPage_Title,
 				menu.scroll >> (FIXED_SHIFT + 3),
-				253 >> 1, 231 >> 1, 113 >> 1,
-				253 >> 1, 113 >> 1, 155 >> 1
+				47 >> 1, 203 >> 1, 85 >> 1,
+				116 >> 1, 47 >> 1, 75 >> 1
 			);
 			break;
 		}
@@ -642,8 +599,8 @@ void Menu_Tick(void)
 				const char *tracks[3];
 				int length;
 			} menu_options[] = {
-				{"1", StageId_1_1, "PLAY ON HARD MODE GUYS", {"CHRISTMAS", "SPOOKPOSTOR"}, 2},
-				{"2", StageId_1_4, "", {"GRINCH"}, 1},
+				{NULL, StageId_1_1, "PLAY ON HARD MODE GUYS", {"CHRISTMAS", "SPOOKPOSTOR"}, 2},
+				{"1", StageId_1_4, "", {"GRINCH"}, 1},
 			};
 	
 			//Draw week name and tracks
@@ -751,7 +708,10 @@ void Menu_Tick(void)
 			
 			//Draw upper strip
 			RECT name_bar = {0, 16, screen.SCREEN_WIDTH, 32};
-			Gfx_DrawRect(&name_bar, 249, 207, 81);
+			if (menu.select == 0)
+				Gfx_DrawRect(&name_bar, 26, 255, 255);
+			else
+				Gfx_DrawRect(&name_bar, 171, 29, 45);
 			
 			//Draw options
 			s32 next_scroll = menu.select * FIXED_DEC(48,1);
@@ -902,9 +862,7 @@ void Menu_Tick(void)
 			Menu_DrawBack(
 				true,
 				8,
-				menu.page_state.freeplay.back_r >> (FIXED_SHIFT + 1),
-				menu.page_state.freeplay.back_g >> (FIXED_SHIFT + 1),
-				menu.page_state.freeplay.back_b >> (FIXED_SHIFT + 1),
+				45 >> 1, 70 >> 1, 28 >> 1,
 				0, 0, 0
 			);
 			break;
@@ -1026,7 +984,7 @@ void Menu_Tick(void)
 			Menu_DrawBack(
 				true,
 				8,
-				197 >> 1, 240 >> 1, 95 >> 1,
+				112 >> 1, 54 >> 1, 121 >> 1,
 				0, 0, 0
 			);
 			break;
@@ -1179,7 +1137,7 @@ void Menu_Tick(void)
 			Menu_DrawBack(
 				true,
 				8,
-				253 >> 1, 113 >> 1, 155 >> 1,
+				112 >> 1, 54 >> 1, 121 >> 1,
 				0, 0, 0
 			);
 			break;

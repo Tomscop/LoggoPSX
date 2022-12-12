@@ -12,7 +12,7 @@
 #include "stage.h"
 				  
 	        //HAS to be BASCUS-scusid,somename
-#define savetitle "bu00:BASCUS-01031christmas"
+#define savetitle "bu00:BASCUS-01031loggo"
 #define savename  "SecretChristmasPort"
 
 static const u8 saveIconPalette[32] = 
