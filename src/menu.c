@@ -422,12 +422,12 @@ void Menu_Tick(void)
 			
 			static const fixed_t logo_scales[] = {
 				FIXED_DEC(1,1),
-				FIXED_DEC(101,100),
-				FIXED_DEC(102,100),
-				FIXED_DEC(103,100),
-				FIXED_DEC(105,100),
-				FIXED_DEC(110,100),
-				FIXED_DEC(97,100),
+				FIXED_DEC(1,1),
+				FIXED_DEC(1,1),
+				FIXED_DEC(1,1),
+				FIXED_DEC(1,1),
+				FIXED_DEC(1,1),
+				FIXED_DEC(1,1),
 			};
 			fixed_t logo_scale = logo_scales[(menu.page_state.title.logo_bump * 24) >> FIXED_SHIFT];
 			u32 x_rad = (logo_scale * (176 >> 1)) >> FIXED_SHIFT;
