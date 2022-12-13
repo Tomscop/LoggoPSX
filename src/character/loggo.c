@@ -96,7 +96,7 @@ void Char_Loggo_Tick(Character *character)
 		{
 			this->character.focus_x = FIXED_DEC(65,1);
 			this->character.focus_y = FIXED_DEC(-1,1);	
-			this->character.focus_zoom = FIXED_DEC(387,512);
+			this->character.focus_zoom = FIXED_DEC(774,1024);
 		}
 	}
 	if (stage.stage_id == StageId_1_2)
@@ -105,7 +105,7 @@ void Char_Loggo_Tick(Character *character)
 		{
 			this->character.focus_x = FIXED_DEC(65,1);
 			this->character.focus_y = FIXED_DEC(-1,1);	
-			this->character.focus_zoom = FIXED_DEC(387,512);
+			this->character.focus_zoom = FIXED_DEC(774,1024);
 		}
 	}
 	

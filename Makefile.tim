@@ -20,6 +20,9 @@ all: \
 	iso/gf/tut.arc \
 	iso/gf/speaker.tim \
 	iso/normal/back.arc \
+	iso/normal/people.arc \
+	iso/normal/person.arc \
+	iso/normal/fire.arc \
 	iso/week1/back.arc \
 
 iso/%.tim: iso/%.png
@@ -46,6 +49,9 @@ iso/gf/tut.arc: iso/gf/tut0.tim iso/gf/tut1.tim
 
 # Normal
 iso/normal/back.arc: iso/normal/back0.tim iso/normal/back1.tim
+iso/normal/people.arc: iso/normal/people0.tim iso/normal/people1.tim
+iso/normal/person.arc: iso/normal/person.tim
+iso/normal/fire.arc: iso/normal/fire.tim
 
 # Week 1
 iso/week1/back.arc: iso/week1/back0.tim iso/week1/back1.tim

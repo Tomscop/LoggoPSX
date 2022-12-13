@@ -65,6 +65,9 @@
 			<dir name = "bg">
 				<!-- Normal BG -->
 				<file name = "normal.arc" type = "data" source = "iso/normal/back.arc"/>
+				<file name = "people.arc" type = "data" source = "iso/normal/people.arc"/>
+				<file name = "person.arc" type = "data" source = "iso/normal/person.arc"/>
+				<file name = "fire.arc" type = "data" source = "iso/normal/fire.arc"/>
 				<!-- Week 1 BG -->
 				<file name = "week1.arc" type = "data" source = "iso/week1/back.arc"/>
 			</dir>
