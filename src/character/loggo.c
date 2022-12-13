@@ -89,6 +89,26 @@ void Char_Loggo_Tick(Character *character)
 {
 	Char_Loggo *this = (Char_Loggo*)character;
 	
+	//Camera stuff
+	if (stage.stage_id == StageId_1_1)
+	{
+		if (stage.song_step == 192)
+		{
+			this->character.focus_x = FIXED_DEC(65,1);
+			this->character.focus_y = FIXED_DEC(-1,1);	
+			this->character.focus_zoom = FIXED_DEC(387,512);
+		}
+	}
+	if (stage.stage_id == StageId_1_2)
+	{
+		if (stage.song_step == 96)
+		{
+			this->character.focus_x = FIXED_DEC(65,1);
+			this->character.focus_y = FIXED_DEC(-1,1);	
+			this->character.focus_zoom = FIXED_DEC(387,512);
+		}
+	}
+	
 	//Perform idle dance
 	if ((character->pad_held & (INPUT_LEFT | INPUT_DOWN | INPUT_UP | INPUT_RIGHT)) == 0)
 		Character_PerformIdle(character);
@@ -139,11 +159,11 @@ Character *Char_Loggo_New(fixed_t x, fixed_t y)
 	this->character.health_i = 1;
 
 	//health bar color
-	this->character.health_bar = 0xFFAD63D6;
+	this->character.health_bar = 0xFF289056;
 	
 	this->character.focus_x = FIXED_DEC(65,1);
-	this->character.focus_y = FIXED_DEC(41,1);
-	this->character.focus_zoom = FIXED_DEC(1,1);
+	this->character.focus_y = FIXED_DEC(1,1);
+	this->character.focus_zoom = FIXED_DEC(357,512);
 	
 	this->character.size = FIXED_DEC(1,1);
 	

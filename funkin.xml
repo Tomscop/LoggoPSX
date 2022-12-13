@@ -42,13 +42,11 @@
 				<file name = "hud1-5.tim" type = "data" source = "iso/stage/hud1-5.tim"/>
 				<file name = "hud1-6.tim" type = "data" source = "iso/stage/hud1-6.tim"/>
 				<file name = "count.tim" type = "data" source = "iso/stage/count.tim"/>
+				<file name = "black.tim" type = "data" source = "iso/stage/black.tim"/>
 			</dir>
 			
 			<!-- Week 1 assets -->
 			<dir name = "week1">
-				<!-- Background art -->
-				<file name = "back.arc" type = "data" source = "iso/week1/back.arc"/>
-				
 				<!-- Christmas charts -->
 				<file name = "1.1e.cht" type = "data" source = "iso/chart/christmas-easy.json.cht"/>
 				<file name = "1.1n.cht" type = "data" source = "iso/chart/christmas.json.cht"/>
@@ -61,6 +59,14 @@
 				<file name = "1.4e.cht" type = "data" source = "iso/chart/grinch-easy.json.cht"/>
 				<file name = "1.4n.cht" type = "data" source = "iso/chart/grinch.json.cht"/>
 				<file name = "1.4h.cht" type = "data" source = "iso/chart/grinch-hard.json.cht"/>
+			</dir>
+			
+			<!-- Background assets -->
+			<dir name = "bg">
+				<!-- Normal BG -->
+				<file name = "normal.arc" type = "data" source = "iso/normal/back.arc"/>
+				<!-- Week 1 BG -->
+				<file name = "week1.arc" type = "data" source = "iso/week1/back.arc"/>
 			</dir>
 		
 			<!-- Character assets -->

@@ -11,6 +11,7 @@ all: \
 	iso/stage/hud1-5.tim \
 	iso/stage/hud1-6.tim \
 	iso/stage/count.tim \
+	iso/stage/black.tim \
 	iso/bf/main.arc \
 	iso/bf/dead.tim \
 	iso/loggo/main.arc \
@@ -18,6 +19,7 @@ all: \
 	iso/gf/main.arc \
 	iso/gf/tut.arc \
 	iso/gf/speaker.tim \
+	iso/normal/back.arc \
 	iso/week1/back.arc \
 
 iso/%.tim: iso/%.png
@@ -41,6 +43,9 @@ iso/dad/main.arc: iso/dad/idle0.tim iso/dad/idle1.tim iso/dad/left.tim iso/dad/d
 # GF
 iso/gf/main.arc: iso/gf/gf0.tim iso/gf/gf1.tim iso/gf/gf2.tim
 iso/gf/tut.arc: iso/gf/tut0.tim iso/gf/tut1.tim
+
+# Normal
+iso/normal/back.arc: iso/normal/back0.tim iso/normal/back1.tim
 
 # Week 1
 iso/week1/back.arc: iso/week1/back0.tim iso/week1/back1.tim

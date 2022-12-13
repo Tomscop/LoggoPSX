@@ -430,10 +430,10 @@ void Menu_Tick(void)
 				FIXED_DEC(1,1),
 			};
 			fixed_t logo_scale = logo_scales[(menu.page_state.title.logo_bump * 24) >> FIXED_SHIFT];
-			u32 x_rad = (logo_scale * (176 >> 1)) >> FIXED_SHIFT;
-			u32 y_rad = (logo_scale * (112 >> 1)) >> FIXED_SHIFT;
+			u32 x_rad = (logo_scale * (214 >> 1)) >> FIXED_SHIFT;
+			u32 y_rad = (logo_scale * (114 >> 1)) >> FIXED_SHIFT;
 			
-			RECT logo_src = {0, 0, 176, 112};
+			RECT logo_src = {0, 0,214,114};
 			RECT logo_dst = {
 				100 - x_rad + (screen.SCREEN_WIDEADD2 >> 1),
 				68 - y_rad,
@@ -455,13 +455,13 @@ void Menu_Tick(void)
 				u8 press_g = (58  + ((press_lerp * (255 - 58))  >> 8)) >> 1;
 				u8 press_b = (206 + ((press_lerp * (255 - 206)) >> 8)) >> 1;
 				
-				RECT press_src = {0, 112, 256, 32};
+				RECT press_src = {0, 113, 256, 32};
 				Gfx_BlitTexCol(&menu.tex_title, &press_src, (screen.SCREEN_WIDTH - 256) / 2, screen.SCREEN_HEIGHT - 48, press_r, press_g, press_b);
 			}
 			else
 			{
 				//Flash white
-				RECT press_src = {0, (animf_count & 1) ? 144 : 112, 256, 32};
+				RECT press_src = {0, (animf_count & 1) ? 144 : 113, 256, 32};
 				Gfx_BlitTex(&menu.tex_title, &press_src, (screen.SCREEN_WIDTH - 256) / 2, screen.SCREEN_HEIGHT - 48);
 			}
 			

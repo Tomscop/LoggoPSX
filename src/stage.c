@@ -54,6 +54,7 @@ static u32 Sounds[10];
 #include "character/dad.h"
 #include "character/gf.h"
 
+#include "stage/normal.h"
 #include "stage/dummy.h"
 #include "stage/week1.h"
 
@@ -1531,6 +1532,8 @@ void Stage_Load(StageId id, StageDiff difficulty, boolean story)
 	sprintf(iconpath, "\\STAGE\\HUD1-%d.TIM;1", stage.stage_def->week);
 	Gfx_LoadTex(&stage.tex_hud1, IO_Read(iconpath), GFX_LOADTEX_FREE);
 	Gfx_LoadTex(&stage.tex_count, IO_Read("\\STAGE\\COUNT.TIM;1"), GFX_LOADTEX_FREE);
+	if (stage.stage_id == StageId_1_3)
+		Gfx_LoadTex(&stage.tex_black, IO_Read("\\STAGE\\BLACK.TIM;1"), GFX_LOADTEX_FREE);
 	
 	//Load death screen texture
 	Gfx_LoadTex(&stage.tex_ded, IO_Read("\\CHAR\\DEAD.TIM;1"), GFX_LOADTEX_FREE);
@@ -1787,6 +1790,14 @@ void Stage_Tick(void)
 	{
 		case StageState_Play:
 		{ 
+			//Spookpostor dim
+			if (stage.stage_id == StageId_1_3)
+			{
+				RECT black_src = {  0,  0,  4,  4};
+				RECT black_dst = {  0,  0, (screen.SCREEN_WIDTH) + 50, (screen.SCREEN_HEIGHT)};
+				Gfx_BlendTex(&stage.tex_black, &black_src, &black_dst, 1);
+			}
+			
 			if (stage.prefs.songtimer)
 			{
 				if (show)
@@ -2036,7 +2047,14 @@ void Stage_Tick(void)
 				boolean is_bump_step;
 				
 				//Check if screen should bump
-				is_bump_step = (stage.song_step & 0xF) == 0;
+				if ((stage.stage_id == StageId_1_1) && (stage.song_step >= 192) || (stage.stage_id == StageId_1_2) && (stage.song_step >= 96) || (stage.stage_id == StageId_1_3) && (stage.song_step >= 64) || (stage.stage_id == StageId_1_4))
+				{
+					is_bump_step = (stage.song_step & 0xF) == 0;
+				}
+				else
+				{
+					is_bump_step = (stage.song_step & 0xF) == 40;
+				}
 				
 				//Bump screen
 				if (is_bump_step)

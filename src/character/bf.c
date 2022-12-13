@@ -119,6 +119,35 @@ void Char_BF_Tick(Character *character)
 {
 	Char_BF *this = (Char_BF*)character;
 	
+	//Camera stuff
+	if (stage.stage_id == StageId_1_1)
+	{
+		if (stage.song_step == 196)
+		{
+			this->character.focus_x = FIXED_DEC(-26,1);
+			this->character.focus_y = FIXED_DEC(13,1);	
+			this->character.focus_zoom = FIXED_DEC(387,512);
+		}
+	}
+	if (stage.stage_id == StageId_1_2)
+	{
+		if (stage.song_step == 100)
+		{
+			this->character.focus_x = FIXED_DEC(-26,1);
+			this->character.focus_y = FIXED_DEC(13,1);	
+			this->character.focus_zoom = FIXED_DEC(387,512);
+		}
+	}
+	if (stage.stage_id == StageId_1_3)
+	{
+		if (stage.song_step == 70)
+		{
+			this->character.focus_x = FIXED_DEC(-26,1);
+			this->character.focus_y = FIXED_DEC(13,1);	
+			this->character.focus_zoom = FIXED_DEC(387,512);
+		}
+	}
+	
 	//Handle animation updates
 	if ((character->pad_held & (INPUT_LEFT | INPUT_DOWN | INPUT_UP | INPUT_RIGHT)) == 0 ||
 	    (character->animatable.anim != CharAnim_Left &&
@@ -213,13 +242,15 @@ Character *Char_BF_New(fixed_t x, fixed_t y)
 	//Set character information
 	this->character.spec = CHAR_SPEC_MISSANIM;
 	this->character.idle2 = 0;
+	
+	this->character.health_i = 0;
 
 	//health bar color
-	this->character.health_bar = 0xFF29B5D6;
+	this->character.health_bar = 0xFF31B0D1;
 	
 	this->character.focus_x = FIXED_DEC(-26,1);
-	this->character.focus_y = FIXED_DEC(53,1);
-	this->character.focus_zoom = FIXED_DEC(1,1);
+	this->character.focus_y = FIXED_DEC(15,1);
+	this->character.focus_zoom = FIXED_DEC(357,512);
 	
 	this->character.size = FIXED_DEC(1,1);
 	
