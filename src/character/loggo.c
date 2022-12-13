@@ -94,18 +94,18 @@ void Char_Loggo_Tick(Character *character)
 	{
 		if (stage.song_step == 192)
 		{
-			this->character.focus_x = FIXED_DEC(65,1);
+			this->character.focus_x = FIXED_DEC(94,1);
 			this->character.focus_y = FIXED_DEC(-1,1);	
-			this->character.focus_zoom = FIXED_DEC(774,1024);
+			this->character.focus_zoom = FIXED_DEC(399,512);
 		}
 	}
 	if (stage.stage_id == StageId_1_2)
 	{
 		if (stage.song_step == 96)
 		{
-			this->character.focus_x = FIXED_DEC(65,1);
+			this->character.focus_x = FIXED_DEC(94,1);
 			this->character.focus_y = FIXED_DEC(-1,1);	
-			this->character.focus_zoom = FIXED_DEC(774,1024);
+			this->character.focus_zoom = FIXED_DEC(399,512);
 		}
 	}
 	
@@ -161,7 +161,7 @@ Character *Char_Loggo_New(fixed_t x, fixed_t y)
 	//health bar color
 	this->character.health_bar = 0xFF289056;
 	
-	this->character.focus_x = FIXED_DEC(65,1);
+	this->character.focus_x = FIXED_DEC(93,1);
 	this->character.focus_y = FIXED_DEC(1,1);
 	this->character.focus_zoom = FIXED_DEC(357,512);
 	

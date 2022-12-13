@@ -131,9 +131,9 @@ void Normal_Person_Draw(Back_Normal *this, fixed_t x, fixed_t y)
 
 //Fire animation and rects
 static const CharFrame fire_frame[] = {
-	{0, {  0,  0,112, 74}, {  0,  0}}, //0 idle 1
-	{0, {  0, 75,112, 74}, {  0,  0}}, //1 idle 2
-	{0, {  0,150,116, 74}, {  2,  0}}, //2 idle 3
+	{0, {  0,  0,116, 74}, {  0,  0}}, //0 idle 1
+	{0, {  0, 75,116, 74}, {  0,  0}}, //1 idle 2
+	{0, {  0,150,116, 74}, {  0,  0}}, //2 idle 3
 };
 
 static const Animation fire_anim[] = {
@@ -184,7 +184,7 @@ void Back_Normal_DrawBG(StageBack *back)
 	
 	Animatable_Animate(&this->people_animatable, (void*)this, Normal_People_SetFrame);
 	
-	Normal_People_Draw(this, FIXED_DEC(0 - 3,1) - fx, FIXED_DEC(0 + 3,1) - fy);
+	Normal_People_Draw(this, FIXED_DEC(15 - 3,1) - fx, FIXED_DEC(104 + 3,1) - fy);
 	
 	//Animate and draw person
 	fx = stage.camera.x;
@@ -195,7 +195,7 @@ void Back_Normal_DrawBG(StageBack *back)
 	
 	Animatable_Animate(&this->person_animatable, (void*)this, Normal_Person_SetFrame);
 	
-	Normal_Person_Draw(this, FIXED_DEC(0 - 3,1) - fx, FIXED_DEC(0 + 6,1) - fy);
+	Normal_Person_Draw(this, FIXED_DEC(526 - 3,1) - fx, FIXED_DEC(105 + 6,1) - fy);
 	
 	//Animate and draw fire
 	fx = stage.camera.x;
@@ -206,7 +206,7 @@ void Back_Normal_DrawBG(StageBack *back)
 	
 	Animatable_Animate(&this->fire_animatable, (void*)this, Normal_Fire_SetFrame);
 	
-	Normal_Fire_Draw(this, FIXED_DEC(0,1) - fx, FIXED_DEC(0,1) - fy);
+	Normal_Fire_Draw(this, FIXED_DEC(315,1) - fx, FIXED_DEC(104,1) - fy);
 	
 	//Draw back
 	fx = stage.camera.x;

@@ -124,27 +124,27 @@ void Char_BF_Tick(Character *character)
 	{
 		if (stage.song_step == 196)
 		{
-			this->character.focus_x = FIXED_DEC(-26,1);
+			this->character.focus_x = FIXED_DEC(-5,1);
 			this->character.focus_y = FIXED_DEC(13,1);	
-			this->character.focus_zoom = FIXED_DEC(774,1024);
+			this->character.focus_zoom = FIXED_DEC(399,512);
 		}
 	}
 	if (stage.stage_id == StageId_1_2)
 	{
 		if (stage.song_step == 100)
 		{
-			this->character.focus_x = FIXED_DEC(-26,1);
+			this->character.focus_x = FIXED_DEC(-5,1);
 			this->character.focus_y = FIXED_DEC(13,1);	
-			this->character.focus_zoom = FIXED_DEC(774,1024);
+			this->character.focus_zoom = FIXED_DEC(399,512);
 		}
 	}
 	if (stage.stage_id == StageId_1_3)
 	{
 		if (stage.song_step == 70)
 		{
-			this->character.focus_x = FIXED_DEC(-26,1);
+			this->character.focus_x = FIXED_DEC(-5,1);
 			this->character.focus_y = FIXED_DEC(13,1);	
-			this->character.focus_zoom = FIXED_DEC(774,1024);
+			this->character.focus_zoom = FIXED_DEC(399,512);
 		}
 	}
 	
@@ -248,7 +248,7 @@ Character *Char_BF_New(fixed_t x, fixed_t y)
 	//health bar color
 	this->character.health_bar = 0xFF31B0D1;
 	
-	this->character.focus_x = FIXED_DEC(-26,1);
+	this->character.focus_x = FIXED_DEC(11,1);
 	this->character.focus_y = FIXED_DEC(15,1);
 	this->character.focus_zoom = FIXED_DEC(357,512);
 	
