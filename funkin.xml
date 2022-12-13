@@ -81,6 +81,9 @@
 				<!-- Loggo assets -->
 				<file name = "loggo.arc" type = "data" source = "iso/loggo/main.arc"/>
 				
+				<!-- Spooker assets -->
+				<file name = "spooker.arc" type = "data" source = "iso/spooker/main.arc"/>
+				
 				<!-- Dad assets -->
 				<file name = "dad.arc" type = "data" source = "iso/dad/main.arc"/>
 
