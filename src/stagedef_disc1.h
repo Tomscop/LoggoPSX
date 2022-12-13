@@ -36,7 +36,7 @@
 		//Characters
 		{Char_BF_New,    FIXED_DEC(408,1),  FIXED_DEC(168,1)},
         {NULL},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_Spooker_New, FIXED_DEC(192,1),  FIXED_DEC(182,1)},
         {NULL},
 		{NULL},
 		

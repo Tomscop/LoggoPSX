@@ -15,6 +15,7 @@ all: \
 	iso/bf/main.arc \
 	iso/bf/dead.tim \
 	iso/loggo/main.arc \
+	iso/spooker/main.arc \
 	iso/dad/main.arc \
 	iso/gf/main.arc \
 	iso/gf/tut.arc \
@@ -39,6 +40,9 @@ iso/bf/main.arc: iso/bf/idle0.tim iso/bf/idle1.tim iso/bf/idle2.tim iso/bf/idle3
 
 # Loggo
 iso/loggo/main.arc: iso/loggo/idle0.tim iso/loggo/idle1.tim iso/loggo/left.tim iso/loggo/down.tim iso/loggo/up0.tim iso/loggo/up1.tim iso/loggo/right.tim
+
+# Spooker
+iso/spooker/main.arc: iso/spooker/idle0.tim iso/spooker/idle1.tim iso/spooker/idle2.tim iso/spooker/idle3.tim iso/spooker/idle4.tim iso/spooker/left0.tim iso/spooker/left1.tim iso/spooker/down.tim iso/spooker/up0.tim iso/spooker/up1.tim iso/spooker/right0.tim iso/spooker/right1.tim
 
 # Dad
 iso/dad/main.arc: iso/dad/idle0.tim iso/dad/idle1.tim iso/dad/left.tim iso/dad/down.tim iso/dad/up.tim iso/dad/right.tim

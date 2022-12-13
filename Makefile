@@ -9,7 +9,7 @@ SRCS = src/main.c \
        src/trans.c \
        src/loadscr.c \
        src/menu.c \
-	   src/events.c \
+       src/events.c \
        src/stage.c \
        src/debug.c \
        src/save.c \
@@ -19,16 +19,17 @@ SRCS = src/main.c \
        src/psx/audio.c \
        src/psx/pad.c \
        src/psx/timer.c \
-	   src/stage/normal.c \
+       src/stage/normal.c \
        src/stage/dummy.c \
        src/stage/week1.c \
        src/animation.c \
        src/character.c \
        src/character/bf.c \
        src/character/loggo.c \
-	   src/character/dad.c \
+       src/character/spooker.c \
+       src/character/dad.c \
        src/character/gf.c \
-	   src/character/speaker.c \
+       src/character/speaker.c \
        src/object.c \
        src/object/combo.c \
        src/object/splash.c \
