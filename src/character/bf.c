@@ -140,6 +140,12 @@ void Char_BF_Tick(Character *character)
 	}
 	if (stage.stage_id == StageId_1_3)
 	{
+		if (stage.song_step == -29)
+		{
+			this->character.focus_x = FIXED_DEC(11,1);
+			this->character.focus_y = FIXED_DEC(15,1);
+			this->character.focus_zoom = FIXED_DEC(357,512);
+		}
 		if (stage.song_step == 70)
 		{
 			this->character.focus_x = FIXED_DEC(-5,1);
@@ -163,21 +169,42 @@ void Char_BF_Tick(Character *character)
 	if (stage.flag & STAGE_FLAG_JUST_STEP)
 	{
 		//Perform idle dance
-		if (Animatable_Ended(&character->animatable) &&
-			(character->animatable.anim != CharAnim_Left &&
-		     character->animatable.anim != CharAnim_LeftAlt &&
-		     character->animatable.anim != PlayerAnim_LeftMiss &&
-		     character->animatable.anim != CharAnim_Down &&
-		     character->animatable.anim != CharAnim_DownAlt &&
-		     character->animatable.anim != PlayerAnim_DownMiss &&
-		     character->animatable.anim != CharAnim_Up &&
-		     character->animatable.anim != CharAnim_UpAlt &&
-		     character->animatable.anim != PlayerAnim_UpMiss &&
-		     character->animatable.anim != CharAnim_Right &&
-		     character->animatable.anim != CharAnim_RightAlt &&
-		     character->animatable.anim != PlayerAnim_RightMiss) &&
-			(stage.song_step & 0x7) == 0)
-			character->set_anim(character, CharAnim_Idle);
+		if (stage.stage_id != StageId_1_3)
+		{
+			if (Animatable_Ended(&character->animatable) &&
+				(character->animatable.anim != CharAnim_Left &&
+				character->animatable.anim != CharAnim_LeftAlt &&
+				character->animatable.anim != PlayerAnim_LeftMiss &&
+				character->animatable.anim != CharAnim_Down &&
+				character->animatable.anim != CharAnim_DownAlt &&
+				character->animatable.anim != PlayerAnim_DownMiss &&
+				character->animatable.anim != CharAnim_Up &&
+				character->animatable.anim != CharAnim_UpAlt &&
+				character->animatable.anim != PlayerAnim_UpMiss &&
+				character->animatable.anim != CharAnim_Right &&
+				character->animatable.anim != CharAnim_RightAlt &&
+				character->animatable.anim != PlayerAnim_RightMiss) &&
+				(stage.song_step & 0x7) == 0)
+				character->set_anim(character, CharAnim_Idle);
+		}
+		else
+		{
+			if (Animatable_Ended(&character->animatable) &&
+				(character->animatable.anim != CharAnim_Left &&
+				character->animatable.anim != CharAnim_LeftAlt &&
+				character->animatable.anim != PlayerAnim_LeftMiss &&
+				character->animatable.anim != CharAnim_Down &&
+				character->animatable.anim != CharAnim_DownAlt &&
+				character->animatable.anim != PlayerAnim_DownMiss &&
+				character->animatable.anim != CharAnim_Up &&
+				character->animatable.anim != CharAnim_UpAlt &&
+				character->animatable.anim != PlayerAnim_UpMiss &&
+				character->animatable.anim != CharAnim_Right &&
+				character->animatable.anim != CharAnim_RightAlt &&
+				character->animatable.anim != PlayerAnim_RightMiss) &&
+				(stage.song_step & 0xF) == 0)
+				character->set_anim(character, CharAnim_Idle);
+		}
 			
 		if (character->idle2 == 1)
 		{

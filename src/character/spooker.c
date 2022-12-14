@@ -46,22 +46,22 @@ typedef struct
 //Spooker character definitions
 static const CharFrame char_spooker_frame[] = {
 	{Spooker_ArcMain_Idle0, {  0,  0,183,157}, {  0,  0}}, //0 idle 1
-	{Spooker_ArcMain_Idle1, {  0,  0,178,163}, {  0,  0}}, //1 idle 2
-	{Spooker_ArcMain_Idle2, {  0,  0,182,167}, {  0,  0}}, //2 idle 3
-	{Spooker_ArcMain_Idle3, {  0,  0,176,167}, {  0,  0}}, //3 idle 4
-    {Spooker_ArcMain_Idle4, {  0,  0,178,167}, {  0,  0}}, //4 idle 5
+	{Spooker_ArcMain_Idle1, {  0,  0,178,163}, { -2,  6}}, //1 idle 2
+	{Spooker_ArcMain_Idle2, {  0,  0,182,167}, {  0, 10}}, //2 idle 3
+	{Spooker_ArcMain_Idle3, {  0,  0,176,167}, { -3, 10}}, //3 idle 4
+    {Spooker_ArcMain_Idle4, {  0,  0,178,167}, { -2, 10}}, //4 idle 5
 	
-	{Spooker_ArcMain_Left0, {  0,  0,213,154}, {  0,  0}}, //5 left 1
-	{Spooker_ArcMain_Left1, {  0,  0,203,155}, {  0,  0}}, //6 left 2
+	{Spooker_ArcMain_Left0, {  0,  0,213,154}, { 34, -3}}, //5 left 1
+	{Spooker_ArcMain_Left1, {  0,  0,203,155}, { 23, -2}}, //6 left 2
 	
-	{Spooker_ArcMain_Down, {  0,  0,187,111}, {  0,  0}}, //7 down 1
-	{Spooker_ArcMain_Down, {  0,112,185,119}, {  0,  0}}, //8 down 2
+	{Spooker_ArcMain_Down, {  0,  0,187,111}, {  0,-44}}, //7 down 1
+	{Spooker_ArcMain_Down, {  0,112,185,119}, {  0,-36}}, //8 down 2
 	
-	{Spooker_ArcMain_Up0, {  0,  0,181,186}, {  0,  0}}, //9 up 1
-	{Spooker_ArcMain_Up1, {  0,  0,181,181}, {  0,  0}}, //10 up 2
+	{Spooker_ArcMain_Up0, {  0,  0,181,186}, { -5, 30}}, //9 up 1
+	{Spooker_ArcMain_Up1, {  0,  0,181,181}, { -3, 25}}, //10 up 2
 	
-	{Spooker_ArcMain_Right0, {  0,  0,201,162}, {  0,  0}}, //11 right 1
-	{Spooker_ArcMain_Right1, {  0,  0,201,162}, {  0,  0}}, //12 right 2
+	{Spooker_ArcMain_Right0, {  0,  0,201,162}, { -3,  7}}, //11 right 1
+	{Spooker_ArcMain_Right1, {  0,  0,201,162}, { -2,  7}}, //12 right 2
 };
 
 static const Animation char_spooker_anim[CharAnim_Max] = {
@@ -100,15 +100,82 @@ void Char_Spooker_Tick(Character *character)
 	{
 		if (stage.song_step == 64)
 		{
-			this->character.focus_x = FIXED_DEC(65,1);
-			this->character.focus_y = FIXED_DEC(-1,1);	
-			this->character.focus_zoom = FIXED_DEC(774,1024);
+			this->character.focus_x = FIXED_DEC(119,1);
+			this->character.focus_y = FIXED_DEC(47,1);	
+			this->character.focus_zoom = FIXED_DEC(399,512);
 		}
 	}
 	
-	//Perform idle dance
-	if ((character->pad_held & (INPUT_LEFT | INPUT_DOWN | INPUT_UP | INPUT_RIGHT)) == 0)
-		Character_PerformIdle(character);
+	//Handle animation updates
+	if ((character->pad_held & (INPUT_LEFT | INPUT_DOWN | INPUT_UP | INPUT_RIGHT)) == 0 ||
+	    (character->animatable.anim != CharAnim_Left &&
+	     character->animatable.anim != CharAnim_LeftAlt &&
+	     character->animatable.anim != CharAnim_Down &&
+	     character->animatable.anim != CharAnim_DownAlt &&
+	     character->animatable.anim != CharAnim_Up &&
+	     character->animatable.anim != CharAnim_UpAlt &&
+	     character->animatable.anim != CharAnim_Right &&
+	     character->animatable.anim != CharAnim_RightAlt))
+		Character_CheckEndSing(character);
+	
+	if (stage.flag & STAGE_FLAG_JUST_STEP)
+	{
+		//Perform idle dance
+		if (stage.stage_id != StageId_1_3)
+		{
+			if (Animatable_Ended(&character->animatable) &&
+				(character->animatable.anim != CharAnim_Left &&
+				character->animatable.anim != CharAnim_LeftAlt &&
+				character->animatable.anim != PlayerAnim_LeftMiss &&
+				character->animatable.anim != CharAnim_Down &&
+				character->animatable.anim != CharAnim_DownAlt &&
+				character->animatable.anim != PlayerAnim_DownMiss &&
+				character->animatable.anim != CharAnim_Up &&
+				character->animatable.anim != CharAnim_UpAlt &&
+				character->animatable.anim != PlayerAnim_UpMiss &&
+				character->animatable.anim != CharAnim_Right &&
+				character->animatable.anim != CharAnim_RightAlt &&
+				character->animatable.anim != PlayerAnim_RightMiss) &&
+				(stage.song_step & 0x7) == 0)
+				character->set_anim(character, CharAnim_Idle);
+		}
+		else
+		{
+			if (Animatable_Ended(&character->animatable) &&
+				(character->animatable.anim != CharAnim_Left &&
+				character->animatable.anim != CharAnim_LeftAlt &&
+				character->animatable.anim != PlayerAnim_LeftMiss &&
+				character->animatable.anim != CharAnim_Down &&
+				character->animatable.anim != CharAnim_DownAlt &&
+				character->animatable.anim != PlayerAnim_DownMiss &&
+				character->animatable.anim != CharAnim_Up &&
+				character->animatable.anim != CharAnim_UpAlt &&
+				character->animatable.anim != PlayerAnim_UpMiss &&
+				character->animatable.anim != CharAnim_Right &&
+				character->animatable.anim != CharAnim_RightAlt &&
+				character->animatable.anim != PlayerAnim_RightMiss) &&
+				(stage.song_step & 0xF) == 0)
+				character->set_anim(character, CharAnim_Idle);
+		}
+			
+		if (character->idle2 == 1)
+		{
+			if (Animatable_Ended(&character->animatable) &&
+			(character->animatable.anim != CharAnim_Left &&
+		     character->animatable.anim != PlayerAnim_LeftMiss &&
+		     character->animatable.anim != CharAnim_Down &&
+		     character->animatable.anim != CharAnim_DownAlt &&
+		     character->animatable.anim != PlayerAnim_DownMiss &&
+		     character->animatable.anim != CharAnim_Up &&
+		     character->animatable.anim != CharAnim_UpAlt &&
+		     character->animatable.anim != PlayerAnim_UpMiss &&
+		     character->animatable.anim != CharAnim_Right &&
+		     character->animatable.anim != CharAnim_RightAlt &&
+		     character->animatable.anim != PlayerAnim_RightMiss) &&
+			(stage.song_step & 0x7) == 3)
+			character->set_anim(character, CharAnim_LeftAlt);
+		}
+	}
 	
 	//Animate and draw
 	Animatable_Animate(&character->animatable, (void*)this, Char_Spooker_SetFrame);
@@ -158,8 +225,8 @@ Character *Char_Spooker_New(fixed_t x, fixed_t y)
 	//health bar color
 	this->character.health_bar = 0xFF289056;
 	
-	this->character.focus_x = FIXED_DEC(65,1);
-	this->character.focus_y = FIXED_DEC(1,1);
+	this->character.focus_x = FIXED_DEC(118,1);
+	this->character.focus_y = FIXED_DEC(49,1);
 	this->character.focus_zoom = FIXED_DEC(357,512);
 	
 	this->character.size = FIXED_DEC(1,1);

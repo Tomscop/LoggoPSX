@@ -1533,8 +1533,7 @@ void Stage_Load(StageId id, StageDiff difficulty, boolean story)
 	sprintf(iconpath, "\\STAGE\\HUD1-%d.TIM;1", stage.stage_def->week);
 	Gfx_LoadTex(&stage.tex_hud1, IO_Read(iconpath), GFX_LOADTEX_FREE);
 	Gfx_LoadTex(&stage.tex_count, IO_Read("\\STAGE\\COUNT.TIM;1"), GFX_LOADTEX_FREE);
-	if (stage.stage_id == StageId_1_3)
-		Gfx_LoadTex(&stage.tex_black, IO_Read("\\STAGE\\BLACK.TIM;1"), GFX_LOADTEX_FREE);
+	Gfx_LoadTex(&stage.tex_black, IO_Read("\\STAGE\\BLACK.TIM;1"), GFX_LOADTEX_FREE);
 	
 	//Load death screen texture
 	Gfx_LoadTex(&stage.tex_ded, IO_Read("\\CHAR\\DEAD.TIM;1"), GFX_LOADTEX_FREE);
@@ -1792,12 +1791,12 @@ void Stage_Tick(void)
 		case StageState_Play:
 		{ 
 			//Spookpostor dim
+			RECT black_src = {  0,  0,  4,  4};
+			RECT black_dst = {  0,  0, (screen.SCREEN_WIDTH) + 50, (screen.SCREEN_HEIGHT)};
 			if (stage.stage_id == StageId_1_3)
-			{
-				RECT black_src = {  0,  0,  4,  4};
-				RECT black_dst = {  0,  0, (screen.SCREEN_WIDTH) + 50, (screen.SCREEN_HEIGHT)};
 				Gfx_BlendTex(&stage.tex_black, &black_src, &black_dst, 1);
-			}
+			if ((stage.stage_id == StageId_1_4) && (stage.song_step >= 256) && (stage.song_step <= 316) || (stage.stage_id == StageId_1_4) && (stage.song_step >= 447) && (stage.song_step <= 466))
+				Gfx_DrawTex(&stage.tex_black, &black_src, &black_dst);
 			
 			if (stage.prefs.songtimer)
 			{
