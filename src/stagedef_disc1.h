@@ -53,7 +53,7 @@
 		//Characters
 		{Char_BF_New,    FIXED_DEC(30,1),  FIXED_DEC(-35,1)},
         {NULL},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_Clowfoe_New, FIXED_DEC(-120,1),  FIXED_DEC(12,1)},
         {NULL},
 		{NULL},
 		

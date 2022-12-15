@@ -84,6 +84,9 @@
 				<!-- Spooker assets -->
 				<file name = "spooker.arc" type = "data" source = "iso/spooker/main.arc"/>
 				
+				<!-- Clowfoe assets -->
+				<file name = "clowfoe.arc" type = "data" source = "iso/clowfoe/main.arc"/>
+				
 				<!-- Dad assets -->
 				<file name = "dad.arc" type = "data" source = "iso/dad/main.arc"/>
 
