@@ -34,7 +34,7 @@ iso/%.arc:
 	tools/funkinarcpak/funkinarcpak $@ $^
 
 # Menu
-iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim
+iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim iso/menu/titlebg.tim iso/menu/loggo.tim
 
 # BF
 iso/bf/main.arc: iso/bf/idle0.tim iso/bf/idle1.tim iso/bf/idle2.tim iso/bf/idle3.tim iso/bf/left0.tim iso/bf/left1.tim iso/bf/down.tim iso/bf/up.tim iso/bf/right0.tim iso/bf/right1.tim iso/bf/leftm0.tim iso/bf/leftm1.tim iso/bf/downm.tim iso/bf/upm.tim iso/bf/rightm0.tim iso/bf/rightm1.tim

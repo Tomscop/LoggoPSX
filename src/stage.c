@@ -2216,35 +2216,38 @@ void Stage_Tick(void)
 			{
 				if (stage.mode < StageMode_2P)
 				{
-					//Perform health checks
-					if (stage.player_state[0].health <= 0 && stage.prefs.practice == 0)
+					if (stage.stage_id != StageId_1_4)
 					{
-						//Player has died
-						stage.player_state[0].health = 0;
-							
-						stage.state = StageState_Dead;
-					}
-					if (stage.player_state[0].health > 20000)
-						stage.player_state[0].health = 20000;
+						//Perform health checks
+						if (stage.player_state[0].health <= 0 && stage.prefs.practice == 0)
+						{
+							//Player has died
+							stage.player_state[0].health = 0;
+								
+							stage.state = StageState_Dead;
+						}
+						if (stage.player_state[0].health > 20000)
+							stage.player_state[0].health = 20000;
+						
+						if (stage.player_state[0].health <= 0 && stage.prefs.practice)
+							stage.player_state[0].health = 0;
 
-					if (stage.player_state[0].health <= 0 && stage.prefs.practice)
-						stage.player_state[0].health = 0;
-
-					//Draw health heads
-					Stage_DrawHealth(stage.player_state[0].health, stage.player_state[0].character->health_i,    1);
-					Stage_DrawHealth(stage.player_state[0].health, stage.player_state[1].character->health_i, -1);
+						//Draw health heads
+						Stage_DrawHealth(stage.player_state[0].health, stage.player_state[0].character->health_i,    1);
+						Stage_DrawHealth(stage.player_state[0].health, stage.player_state[1].character->health_i, -1);
 					
-                    //Draw health bar
-                    if (stage.mode == StageMode_Swap)
-                    {
-					    Stage_DrawHealthBar(255 - (255 * stage.player_state[0].health / 20000), stage.player->health_bar);
-					    Stage_DrawHealthBar(255, stage.opponent->health_bar);
-                    }
-                    else
-                    {
-					    Stage_DrawHealthBar(255 - (255 * stage.player_state[0].health / 20000), stage.opponent->health_bar);
-					    Stage_DrawHealthBar(255, stage.player->health_bar);
-                    }
+						//Draw health bar
+						if (stage.mode == StageMode_Swap)
+						{
+							Stage_DrawHealthBar(255 - (255 * stage.player_state[0].health / 20000), stage.player->health_bar);
+							Stage_DrawHealthBar(255, stage.opponent->health_bar);
+						}
+						else
+						{
+							Stage_DrawHealthBar(255 - (255 * stage.player_state[0].health / 20000), stage.opponent->health_bar);
+							Stage_DrawHealthBar(255, stage.player->health_bar);
+						}
+					}
 				}
 			
 				//Tick note splashes
@@ -2363,7 +2366,7 @@ void Stage_Tick(void)
 			stage.player2 = NULL;
 			Character_Free(stage.opponent);
 			stage.opponent = NULL;
-            		Character_Free(stage.opponent2);
+            Character_Free(stage.opponent2);
 			stage.opponent2 = NULL;
 			Character_Free(stage.gf);
 			stage.gf = NULL;
