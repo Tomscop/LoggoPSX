@@ -228,10 +228,10 @@ void Menu_Load(MenuPage page)
 	FontData_Load(&menu.font_arial, Font_Arial, false);
 	FontData_Load(&menu.font_cdr, Font_CDR, false);
 	
-	menu.gf = Char_GF_New(FIXED_DEC(62,1), FIXED_DEC(-12,1));
+	menu.gf = Char_GF_New(FIXED_DEC(-24,1), FIXED_DEC(46,1));
 	stage.camera.x = stage.camera.y = FIXED_DEC(0,1);
 	stage.camera.bzoom = FIXED_UNIT;
-	stage.gf_speed = 4;
+	stage.gf_speed = 0;
 	
 	//Initialize menu state
 	menu.select = menu.next_select = 0;
@@ -456,15 +456,18 @@ void Menu_Tick(void)
 				u8 press_g = (58  + ((press_lerp * (255 - 58))  >> 8)) >> 1;
 				u8 press_b = (206 + ((press_lerp * (255 - 206)) >> 8)) >> 1;
 				
-				RECT press_src = {0, 113, 256, 32};
+				RECT press_src = {0, 152, 256, 32};
 				Gfx_BlitTexCol(&menu.tex_title, &press_src, (screen.SCREEN_WIDTH - 256) / 2, screen.SCREEN_HEIGHT - 48, press_r, press_g, press_b);
 			}
 			else
 			{
 				//Flash white
-				RECT press_src = {0, (animf_count & 1) ? 144 : 113, 256, 32};
+				RECT press_src = {0, (animf_count & 1) ? 184 : 152, 256, 32};
 				Gfx_BlitTex(&menu.tex_title, &press_src, (screen.SCREEN_WIDTH - 256) / 2, screen.SCREEN_HEIGHT - 48);
 			}
+			
+			//Draw Girlfriend
+			menu.gf->tick(menu.gf);
 			
 			//Draw TitleBG
 			RECT titlebg_src = {  0,  0,255,240};
@@ -475,9 +478,6 @@ void Menu_Tick(void)
 				240
 			};
 			Gfx_DrawTex(&menu.tex_titlebg, &titlebg_src, &titlebg_dst);
-			
-			//Draw Girlfriend
-			//menu.gf->tick(menu.gf);
 			break;
 		}
 		case MenuPage_Main:

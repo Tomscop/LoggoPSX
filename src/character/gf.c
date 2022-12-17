@@ -11,12 +11,10 @@
 #include "../stage.h"
 #include "../main.h"
 
-#include "speaker.h"
-
 //GF character structure
 enum
 {
-	GF_ArcMain_GF0,
+	GF_ArcMain_Loggo,
 	GF_ArcMain_GF1,
 	GF_ArcMain_GF2,
 	
@@ -38,59 +36,46 @@ typedef struct
 	Gfx_Tex tex;
 	u8 frame, tex_id;
 	
-	//Speaker
-	Speaker speaker;
-	
 } Char_GF;
 
 //GF character definitions
 static const CharFrame char_gf_frame[] = {
-	{GF_ArcMain_GF0, {  0,   0,  74, 103}, { 37,  72}}, //0 bop left 1
-	{GF_ArcMain_GF0, { 75,   0,  74, 103}, { 38,  72}}, //1 bop left 2
-	{GF_ArcMain_GF0, {150,   0,  73, 102}, { 37,  72}}, //2 bop left 3
-	{GF_ArcMain_GF0, {  0, 104,  73, 103}, { 36,  73}}, //3 bop left 4
-	{GF_ArcMain_GF0, { 74, 104,  78, 105}, { 38,  75}}, //4 bop left 5
-	{GF_ArcMain_GF0, {153, 103,  81, 106}, { 41,  76}}, //5 bop left 6
+	{GF_ArcMain_Loggo, {  0,  0,120, 82}, {  0,  0}}, //0 bop left
 	
-	{GF_ArcMain_GF1, {  0,   0,  81, 104}, { 40,  73}}, //6 bop right 1
-	{GF_ArcMain_GF1, { 82,   0,  81, 104}, { 40,  73}}, //7 bop right 2
-	{GF_ArcMain_GF1, {164,   0,  80, 103}, { 39,  73}}, //8 bop right 3
-	{GF_ArcMain_GF1, {  0, 104,  79, 103}, { 38,  74}}, //9 bop right 4
-	{GF_ArcMain_GF1, { 80, 105,  74, 104}, { 32,  74}}, //10 bop right 5
-	{GF_ArcMain_GF1, {155, 104,  74, 104}, { 32,  74}}, //11 bop right 6
+	{GF_ArcMain_Loggo, {121,  0,113, 82}, {  0,  0}}, //1 bop right
 	
-	{GF_ArcMain_GF2, {  0,   0,  73, 100}, { 34,  71}}, //12 cry 1
-	{GF_ArcMain_GF2, { 74,   0,  73, 102}, { 35,  72}}, //13 cry 2
-	{GF_ArcMain_GF2, {148,   0,  73, 102}, { 34,  72}}, //14 cry 3
-	{GF_ArcMain_GF2, {  0, 101,  74, 102}, { 35,  72}}, //15 cry 4
-	{GF_ArcMain_GF2, { 75, 102,  73, 102}, { 34,  72}}, //16 cry 5
+	{GF_ArcMain_GF2, {  0,   0,  73, 100}, { 34,  71}}, //2 cry 1
+	{GF_ArcMain_GF2, { 74,   0,  73, 102}, { 35,  72}}, //3 cry 2
+	{GF_ArcMain_GF2, {148,   0,  73, 102}, { 34,  72}}, //4 cry 3
+	{GF_ArcMain_GF2, {  0, 101,  74, 102}, { 35,  72}}, //5 cry 4
+	{GF_ArcMain_GF2, { 75, 102,  73, 102}, { 34,  72}}, //6 cry 5
 	
-	{GF_ArcScene_0, {  0,   0,  75, 102}, { 39,  71}}, //17 left 1
-	{GF_ArcScene_0, { 76,   0,  77, 103}, { 41,  72}}, //18 left 2
+	{GF_ArcScene_0, {  0,   0,  75, 102}, { 39,  71}}, //7 left 1
+	{GF_ArcScene_0, { 76,   0,  77, 103}, { 41,  72}}, //8 left 2
 	
-	{GF_ArcScene_0, {154,   0,  79, 102}, { 37,  71}}, //19 down 1
-	{GF_ArcScene_0, {  0, 103,  78, 104}, { 37,  72}}, //20 down 2
+	{GF_ArcScene_0, {154,   0,  79, 102}, { 37,  71}}, //9 down 1
+	{GF_ArcScene_0, {  0, 103,  78, 104}, { 37,  72}}, //10 down 2
 	
-	{GF_ArcScene_0, { 79, 104,  79, 108}, { 39,  78}}, //21 up 1
-	{GF_ArcScene_0, {159, 104,  79, 109}, { 39,  78}}, //22 up 2
+	{GF_ArcScene_0, { 79, 104,  79, 108}, { 39,  78}}, //11 up 1
+	{GF_ArcScene_0, {159, 104,  79, 109}, { 39,  78}}, //12 up 2
 	
-	{GF_ArcScene_1, {  0,   0,  81, 102}, { 41,  71}}, //23 right 1
-	{GF_ArcScene_1, { 81,   0,  76, 103}, { 36,  72}}, //24 right 2
+	{GF_ArcScene_1, {  0,   0,  81, 102}, { 41,  71}}, //13 right 1
+	{GF_ArcScene_1, { 81,   0,  76, 103}, { 36,  72}}, //14 right 2
 	
-	{GF_ArcScene_1, {158,   0,  75, 108}, { 36,  78}}, //25 cheer 1
-	{GF_ArcScene_1, {  0, 103,  77, 107}, { 37,  77}}, //26 cheer 2
+	{GF_ArcScene_1, {158,   0,  75, 108}, { 36,  78}}, //15 cheer 1
+	{GF_ArcScene_1, {  0, 103,  77, 107}, { 37,  77}}, //16 cheer 2
 };
 
 static const Animation char_gf_anim[CharAnim_Max] = {
 	{0, (const u8[]){ASCR_CHGANI, CharAnim_LeftAlt}},                        //CharAnim_Idle
-	{2, (const u8[]){17, 18, ASCR_BACK, 1}},                                 //CharAnim_Left
-	{1, (const u8[]){ 0,  0,  1,  1,  2,  2,  3,  4,  4,  5, ASCR_BACK, 1}}, //CharAnim_LeftAlt
-	{2, (const u8[]){19, 20, ASCR_BACK, 1}},                                 //CharAnim_Down
-	{1, (const u8[]){12, 13, 14, 15, 16, ASCR_REPEAT}},                      //CharAnim_DownAlt
-	{2, (const u8[]){21, 22, ASCR_BACK, 1}},                                 //CharAnim_Up
-	{2, (const u8[]){25, 26, ASCR_BACK, 1}},                                 //CharAnim_UpAlt
-	{2, (const u8[]){23, 24, ASCR_BACK, 1}},                                 //CharAnim_Right
-	{1, (const u8[]){ 6,  6,  7,  7,  8,  8,  9, 10, 10, 11, ASCR_BACK, 1}}, //CharAnim_RightAlt
+	{2, (const u8[]){ 7, 8, ASCR_BACK, 1}},                                 //CharAnim_Left
+	{3, (const u8[]){ 0, ASCR_CHGANI, CharAnim_RightAlt}}, //CharAnim_LeftAlt
+	{2, (const u8[]){ 9, 10, ASCR_BACK, 1}},                                 //CharAnim_Down
+	{1, (const u8[]){ 2, 3, 4, 5, 6, ASCR_REPEAT}},                      //CharAnim_DownAlt
+	{2, (const u8[]){ 11, 12, ASCR_BACK, 1}},                                 //CharAnim_Up
+	{2, (const u8[]){ 15, 16, ASCR_BACK, 1}},                                 //CharAnim_UpAlt
+	{2, (const u8[]){ 13, 14, ASCR_BACK, 1}},                                 //CharAnim_Right
+	{3, (const u8[]){ 1, ASCR_CHGANI, CharAnim_LeftAlt}}, //CharAnim_RightAlt
 };
 
 //GF character functions
@@ -123,9 +108,6 @@ void Char_GF_Tick(Character *character)
 				character->set_anim(character, CharAnim_RightAlt);
 			else
 				character->set_anim(character, CharAnim_LeftAlt);
-			
-			//Bump speakers
-			Speaker_Bump(&this->speaker);
 		}
 	}
 
@@ -136,9 +118,6 @@ void Char_GF_Tick(Character *character)
 	//Animate and draw
 	Animatable_Animate(&character->animatable, (void*)this, Char_GF_SetFrame);
 	Character_DrawParallax(character, &this->tex, &char_gf_frame[this->frame], parallax);
-	
-	//Tick speakers
-	Speaker_Tick(&this->speaker, character->x, character->y, parallax);
 }
 
 void Char_GF_SetAnim(Character *character, u8 anim)
@@ -190,13 +169,13 @@ Character *Char_GF_New(fixed_t x, fixed_t y)
 	this->character.focus_y = FIXED_DEC(-40,1);
 	this->character.focus_zoom = FIXED_DEC(2,1);
 	
-	this->character.size = FIXED_DEC(1,1);
+	this->character.size = FIXED_DEC(6680,10000);
 	
 	//Load art
 	this->arc_main = IO_Read("\\CHAR\\GF.ARC;1");
 		
 	const char **pathp = (const char *[]){
-		"gf0.tim", //GF_ArcMain_GF0
+		"loggo.tim", //GF_ArcMain_Loggo
 		"gf1.tim", //GF_ArcMain_GF1
 		"gf2.tim", //GF_ArcMain_GF2
 		NULL
@@ -207,9 +186,6 @@ Character *Char_GF_New(fixed_t x, fixed_t y)
 	
 	//Initialize render state
 	this->tex_id = this->frame = 0xFF;
-	
-	//Initialize speaker
-	Speaker_Init(&this->speaker);
 	
 	return (Character*)this;
 }

@@ -55,6 +55,11 @@ void Events_StartEvents(void)
 					stage.bump += event->value2;
 					break;
 				}
+				case EVENTS_FLAG_PLAYANIM: //Play Animation!!
+				{
+					
+					break;
+				}
 				default: //nothing lol
 					break;
 			}

@@ -237,19 +237,10 @@ static u8 Stage_HitNote(PlayerState *this, u8 type, fixed_t offset)
 	};
 	this->score += score_inc[hit_type];
 
-	this->min_accuracy += 1;
+	this->min_accuracy += 100;
 
-	if (hit_type == 3)
-	this->max_accuracy += 4;
+	this->max_accuracy += 100 + (hit_type*25);
 
-	else if (hit_type == 2)
-	this->max_accuracy += 3;
-
-	else if (hit_type == 1)
-	this->max_accuracy += 2;
-
-	else
-	this->max_accuracy += 1;
 	this->refresh_accuracy = true;
 	this->refresh_score = true;
 	
@@ -1790,7 +1781,31 @@ void Stage_Tick(void)
 	switch (stage.state)
 	{
 		case StageState_Play:
-		{ 
+		{
+			if (stage.song_step >= 0)
+			{
+				if (stage.paused == false && pad_state.press & PAD_START)
+				{
+					stage.pause_scroll = -1;
+					Audio_PauseXA();
+					stage.paused = true;
+					pad_state.press = 0;
+				}
+			}
+			
+			if (stage.paused)
+			{
+				switch (stage.pause_state)
+				{
+					case 0:
+						PausedState();
+						break;
+                    case 1:
+							OptionsState(&note_x);
+							break;
+				}
+			}
+			
 			//Spookpostor dim
 			RECT black_src = {  0,  0,  4,  4};
 			RECT black_dst = {  0,  0, (screen.SCREEN_WIDTH) + 50, (screen.SCREEN_HEIGHT)};
@@ -2008,30 +2023,6 @@ void Stage_Tick(void)
 						next_scroll = ((fixed_t)stage.step_base << FIXED_SHIFT) + FIXED_MUL(stage.song_time - stage.time_base, stage.step_crochet);
 						goto RecalcScroll;
 					}
-				}
-			}
-            
-            if (stage.song_step >= 0)
-			{
-				if (stage.paused == false && pad_state.press & PAD_START)
-				{
-					stage.pause_scroll = -1;
-					Audio_PauseXA();
-					stage.paused = true;
-					pad_state.press = 0;
-				}
-			}
-
-			if (stage.paused)
-			{
-				switch (stage.pause_state)
-				{
-					case 0:
-						PausedState();
-						break;
-                    case 1:
-							OptionsState(&note_x);
-							break;
 				}
 			}
 
@@ -2335,10 +2326,10 @@ void Stage_Tick(void)
 			StageTimer_Tick();
 			
 			//Player 2 and Opponent 2 Switches
-			if (stage.stage_id == StageId_6_3)
+			if (stage.stage_id == StageId_1_4)
 			{
-				if (stage.song_step == 9999999)
-					stage.player_state[0].character = Stage_ChangeChars(stage.player_state[1].character, stage.player2);
+				if (stage.song_step == 724)
+					stage.player_state[1].character = Stage_ChangeChars(stage.player_state[1].character,stage.opponent2);
 			}
 			break;
 		}

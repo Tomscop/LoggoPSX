@@ -16,6 +16,7 @@
 #define EVENTS_FLAG_SPEED     (1 << 2) //Change Scroll Speed
 #define EVENTS_FLAG_GF        (1 << 3) //Set GF Speed
 #define EVENTS_FLAG_CAMZOOM   (1 << 4) //Add Camera Zoom
+#define EVENTS_FLAG_PLAYANIM  (1 << 5) //Play Animation
 
 #define EVENTS_FLAG_PLAYED    (1 << 15) //Event has been already played
 
