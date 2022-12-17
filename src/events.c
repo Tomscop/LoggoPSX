@@ -57,7 +57,7 @@ void Events_StartEvents(void)
 				}
 				case EVENTS_FLAG_PLAYANIM: //Play Animation!!
 				{
-					
+					stage.opponent2->set_anim(stage.opponent2, CharAnim_Up);
 					break;
 				}
 				default: //nothing lol
