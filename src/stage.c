@@ -52,6 +52,7 @@ static u32 Sounds[10];
 #include "character/bf.h"
 #include "character/loggo.h"
 #include "character/spooker.h"
+#include "character/grinch.h"
 #include "character/clowfoe.h"
 #include "character/dad.h"
 #include "character/gf.h"
@@ -2328,7 +2329,7 @@ void Stage_Tick(void)
 			//Player 2 and Opponent 2 Switches
 			if (stage.stage_id == StageId_1_4)
 			{
-				if (stage.song_step == 724)
+				if (stage.song_step == 723)
 					stage.player_state[1].character = Stage_ChangeChars(stage.player_state[1].character,stage.opponent2);
 			}
 			break;
