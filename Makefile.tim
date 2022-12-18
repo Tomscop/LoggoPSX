@@ -14,6 +14,7 @@ all: \
 	iso/stage/black.tim \
 	iso/bf/main.arc \
 	iso/bf/dead.tim \
+	iso/loggop/main.arc \
 	iso/loggo/main.arc \
 	iso/spooker/main.arc \
 	iso/grinch/main.arc \
@@ -39,6 +40,9 @@ iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu
 
 # BF
 iso/bf/main.arc: iso/bf/idle0.tim iso/bf/idle1.tim iso/bf/idle2.tim iso/bf/idle3.tim iso/bf/left0.tim iso/bf/left1.tim iso/bf/down.tim iso/bf/up.tim iso/bf/right0.tim iso/bf/right1.tim iso/bf/leftm0.tim iso/bf/leftm1.tim iso/bf/downm.tim iso/bf/upm.tim iso/bf/rightm0.tim iso/bf/rightm1.tim
+
+# Loggo Playable
+iso/loggop/main.arc: iso/loggop/loggo0.tim iso/loggop/loggo1.tim iso/loggop/loggo2.tim
 
 # Loggo
 iso/loggo/main.arc: iso/loggo/idle0.tim iso/loggo/idle1.tim iso/loggo/left.tim iso/loggo/down.tim iso/loggo/up0.tim iso/loggo/up1.tim iso/loggo/right.tim

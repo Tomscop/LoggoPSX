@@ -78,6 +78,9 @@
 				<file name = "bf.arc" type = "data" source = "iso/bf/main.arc"/>
 				<file name = "dead.tim" type = "data" source = "iso/bf/dead.tim"/>
 				
+				<!-- Loggo Playable assets -->
+				<file name = "loggop.arc" type = "data" source = "iso/loggop/main.arc"/>
+				
 				<!-- Loggo assets -->
 				<file name = "loggo.arc" type = "data" source = "iso/loggo/main.arc"/>
 				
