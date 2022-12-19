@@ -51,7 +51,7 @@
 	},
 	{ //StageId_1_4 (Grinch)
 		//Characters
-		{Char_LoggoP_New,    FIXED_DEC(30,1),  FIXED_DEC(-35,1)},
+		{Char_LoggoP_New,    FIXED_DEC(30,1),  FIXED_DEC(22,1)},
         {NULL},
 		{Char_Grinch_New, FIXED_DEC(-202,1),  FIXED_DEC(-68,1)},
         {Char_Clowfoe_New, FIXED_DEC(-120,1),  FIXED_DEC(12,1)},

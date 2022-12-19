@@ -45,11 +45,11 @@ static const CharFrame char_loggop_frame[] = {
 	{LoggoP_ArcMain_Loggo0, {165,109, 83,101}, {  2,  3}}, //5 left 1
 	{LoggoP_ArcMain_Loggo1, {  0,  0, 82,100}, {  0,  3}}, //6 left 2
 	
-	{LoggoP_ArcMain_Loggo1, { 83,  0,105, 86}, { 10,-10}}, //7 down 1
-	{LoggoP_ArcMain_Loggo1, {  0,101,105, 87}, {  9, -9}}, //8 down 2
+	{LoggoP_ArcMain_Loggo1, { 83,  0,105, 86}, {  2,-10}}, //7 down 1
+	{LoggoP_ArcMain_Loggo1, {  0,101,105, 87}, {  1, -9}}, //8 down 2
 	
-	{LoggoP_ArcMain_Loggo1, {106,101, 90,101}, { -1,  9}}, //9 up 1
-	{LoggoP_ArcMain_Loggo2, {  0,  0, 92, 99}, {  0,  7}}, //10 up 2
+	{LoggoP_ArcMain_Loggo1, {106,101, 90,101}, { -1,  8}}, //9 up 1
+	{LoggoP_ArcMain_Loggo2, {  0,  0, 92, 99}, {  0,  6}}, //10 up 2
 	
 	{LoggoP_ArcMain_Loggo2, { 93,  0, 80,101}, { -3,  3}}, //11 right 1
 	{LoggoP_ArcMain_Loggo2, {174,  0, 77,101}, { -2,  4}}, //12 right 2
