@@ -24,6 +24,8 @@ typedef struct
 	
 	Gfx_Tex tex_back0; //back0
 	Gfx_Tex tex_back1; //back1
+	Gfx_Tex tex_back2; //back2
+	Gfx_Tex tex_back3; //back3
 	
 	//Fire state
 	Gfx_Tex tex_fire;
@@ -114,10 +116,36 @@ void Back_Gronch_DrawBG(StageBack *back)
 		FIXED_DEC(281,1)
 	};
 	
+	RECT back2_src = {  0,  0,255,255};
+	RECT_FIXED back2_dst = {
+		FIXED_DEC(-1 - screen.SCREEN_WIDEOADD2,1) - fx,
+		FIXED_DEC(13,1) - fy,
+		FIXED_DEC(281 + screen.SCREEN_WIDEOADD,1),
+		FIXED_DEC(281,1)
+	};
+	
+	RECT back3_src = {  0,  0,197,255};
+	RECT_FIXED back3_dst = {
+		FIXED_DEC(279 - screen.SCREEN_WIDEOADD2,1) - fx,
+		FIXED_DEC(13,1) - fy,
+		FIXED_DEC(217 + screen.SCREEN_WIDEOADD,1),
+		FIXED_DEC(281,1)
+	};
+	
 	Debug_StageMoveDebug(&back0_dst, 5, fx, fy);
 	Debug_StageMoveDebug(&back1_dst, 6, fx, fy);
-	Stage_DrawTex(&this->tex_back0, &back0_src, &back0_dst, stage.camera.bzoom);
-	Stage_DrawTex(&this->tex_back1, &back1_src, &back1_dst, stage.camera.bzoom);
+	Debug_StageMoveDebug(&back2_dst, 7, fx, fy);
+	Debug_StageMoveDebug(&back3_dst, 8, fx, fy);
+	if (stage.song_step <= 260)
+	{
+		Stage_DrawTex(&this->tex_back0, &back0_src, &back0_dst, stage.camera.bzoom);
+		Stage_DrawTex(&this->tex_back1, &back1_src, &back1_dst, stage.camera.bzoom);
+	}
+	else if (stage.song_step >= 260)
+	{
+		Stage_DrawTex(&this->tex_back2, &back2_src, &back2_dst, stage.camera.bzoom);
+		Stage_DrawTex(&this->tex_back3, &back3_src, &back3_dst, stage.camera.bzoom);
+	}
 }
 
 void Back_Gronch_Free(StageBack *back)
@@ -148,6 +176,8 @@ StageBack *Back_Gronch_New(void)
 	IO_Data arc_back = IO_Read("\\BG\\GRONCH.ARC;1");
 	Gfx_LoadTex(&this->tex_back0, Archive_Find(arc_back, "back0.tim"), 0);
 	Gfx_LoadTex(&this->tex_back1, Archive_Find(arc_back, "back1.tim"), 0);
+	Gfx_LoadTex(&this->tex_back2, Archive_Find(arc_back, "back2.tim"), 0);
+	Gfx_LoadTex(&this->tex_back3, Archive_Find(arc_back, "back3.tim"), 0);
 	Mem_Free(arc_back);
 	
 	//Load fire textures

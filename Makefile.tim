@@ -71,7 +71,7 @@ iso/normal/person.arc: iso/normal/person.tim
 iso/normal/fire.arc: iso/normal/fire.tim
 
 # Gronch
-iso/gronch/back.arc: iso/gronch/back0.tim iso/gronch/back1.tim
+iso/gronch/back.arc: iso/gronch/back0.tim iso/gronch/back1.tim iso/gronch/back2.tim iso/gronch/back3.tim
 
 # Week 1
 iso/week1/back.arc: iso/week1/back0.tim iso/week1/back1.tim
