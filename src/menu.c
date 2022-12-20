@@ -452,9 +452,9 @@ void Menu_Tick(void)
 			{
 				//Blinking blue
 				s16 press_lerp = (MUtil_Cos(animf_count << 3) + 0x100) >> 1;
-				u8 press_r = 51 >> 1;
-				u8 press_g = (58  + ((press_lerp * (255 - 58))  >> 8)) >> 1;
-				u8 press_b = (206 + ((press_lerp * (255 - 206)) >> 8)) >> 1;
+				u8 press_r = 12;
+				u8 press_g = 191;
+				u8 press_b = 0;
 				
 				RECT press_src = {0, 152, 256, 32};
 				Gfx_BlitTexCol(&menu.tex_title, &press_src, (screen.SCREEN_WIDTH - 256) / 2, screen.SCREEN_HEIGHT - 48, press_r, press_g, press_b);
@@ -463,7 +463,7 @@ void Menu_Tick(void)
 			{
 				//Flash white
 				RECT press_src = {0, (animf_count & 1) ? 184 : 152, 256, 32};
-				Gfx_BlitTex(&menu.tex_title, &press_src, (screen.SCREEN_WIDTH - 256) / 2, screen.SCREEN_HEIGHT - 48);
+				Gfx_BlitTexCol(&menu.tex_title, &press_src, (screen.SCREEN_WIDTH - 256) / 2, screen.SCREEN_HEIGHT - 48, 191, 0, 0);
 			}
 			
 			//Draw Girlfriend
@@ -890,6 +890,7 @@ void Menu_Tick(void)
 				{StageId_1_1, "    PICHUMANTEN", false},
 				{StageId_1_1, "HELP", false},
 				{StageId_1_1, "    IGORSOU", false},
+				{StageId_1_1, "    UNSTOPABLE", false},
 				{StageId_1_1, "PSXFUNKIN CREATOR", false},
 				{StageId_1_1, "    CUCKYDEV", false},
 				{StageId_1_1, "FORK DEVS", false},
