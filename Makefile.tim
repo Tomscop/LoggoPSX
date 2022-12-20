@@ -27,6 +27,7 @@ all: \
 	iso/normal/people.arc \
 	iso/normal/person.arc \
 	iso/normal/fire.arc \
+	iso/gronch/back.arc \
 	iso/week1/back.arc \
 
 iso/%.tim: iso/%.png
@@ -68,6 +69,9 @@ iso/normal/back.arc: iso/normal/back0.tim iso/normal/back1.tim
 iso/normal/people.arc: iso/normal/people0.tim iso/normal/people1.tim
 iso/normal/person.arc: iso/normal/person.tim
 iso/normal/fire.arc: iso/normal/fire.tim
+
+# Gronch
+iso/gronch/back.arc: iso/gronch/back0.tim iso/gronch/back1.tim
 
 # Week 1
 iso/week1/back.arc: iso/week1/back0.tim iso/week1/back1.tim

@@ -20,6 +20,7 @@ SRCS = src/main.c \
        src/psx/pad.c \
        src/psx/timer.c \
        src/stage/normal.c \
+	   src/stage/gronch.c \
        src/stage/dummy.c \
        src/stage/week1.c \
        src/animation.c \

@@ -51,14 +51,14 @@
 	},
 	{ //StageId_1_4 (Grinch)
 		//Characters
-		{Char_LoggoP_New,    FIXED_DEC(30,1),  FIXED_DEC(22,1)},
+		{Char_LoggoP_New,    FIXED_DEC(315,1),  FIXED_DEC(158,1)},
         {NULL},
-		{Char_Grinch_New, FIXED_DEC(-202,1),  FIXED_DEC(-68,1)},
-        {Char_Clowfoe_New, FIXED_DEC(-120,1),  FIXED_DEC(12,1)},
+		{Char_Grinch_New, FIXED_DEC(88,1),  FIXED_DEC(76,1)},
+		{Char_Clowfoe_New, FIXED_DEC(183,1),  FIXED_DEC(154,1)},
 		{NULL},
 		
 		//Stage background
-		Back_Week1_New,
+		Back_Gronch_New,
 		
 		//Song info
 		1, 4,

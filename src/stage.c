@@ -59,6 +59,7 @@ static u32 Sounds[10];
 #include "character/gf.h"
 
 #include "stage/normal.h"
+#include "stage/gronch.h"
 #include "stage/dummy.h"
 #include "stage/week1.h"
 
@@ -1813,7 +1814,7 @@ void Stage_Tick(void)
 			RECT black_dst = {  0,  0, (screen.SCREEN_WIDTH) + 50, (screen.SCREEN_HEIGHT)};
 			if (stage.stage_id == StageId_1_3)
 				Gfx_BlendTex(&stage.tex_black, &black_src, &black_dst, 1);
-			if ((stage.stage_id == StageId_1_4) && (stage.song_step >= 256) && (stage.song_step <= 316) || (stage.stage_id == StageId_1_4) && (stage.song_step >= 447) && (stage.song_step <= 466))
+			if ((stage.stage_id == StageId_1_4) && (stage.song_step >= 255) && (stage.song_step <= 316) || (stage.stage_id == StageId_1_4) && (stage.song_step >= 447) && (stage.song_step <= 466))
 				Gfx_DrawTex(&stage.tex_black, &black_src, &black_dst);
 			
 			if (stage.prefs.songtimer)

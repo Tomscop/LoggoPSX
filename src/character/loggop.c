@@ -87,13 +87,25 @@ void Char_LoggoP_Tick(Character *character)
 	Char_LoggoP *this = (Char_LoggoP*)character;
 	
 	//Camera stuff
-	if (stage.stage_id == StageId_1_1)
+	if (stage.stage_id == StageId_1_4)
 	{
-		if (stage.song_step == 192)
+		if (stage.song_step == 0)
 		{
-			this->character.focus_x = FIXED_DEC(94,1);
-			this->character.focus_y = FIXED_DEC(-1,1);	
-			this->character.focus_zoom = FIXED_DEC(399,512);
+			this->character.focus_x = FIXED_DEC(-20,1);
+			this->character.focus_y = FIXED_DEC(-16,1);	
+			this->character.focus_zoom = FIXED_DEC(530,512);
+		}
+		if ((stage.song_step == 38) || (stage.song_step == 192) || (stage.song_step == 381) || (stage.song_step == 532))
+		{
+			this->character.focus_x = FIXED_DEC(-20,1);
+			this->character.focus_y = FIXED_DEC(-16,1);	
+			this->character.focus_zoom = FIXED_DEC(259,256);
+		}
+		if ((stage.song_step == 31) || (stage.song_step == 176) || (stage.song_step == 350) || (stage.song_step == 500))
+		{
+			this->character.focus_x = FIXED_DEC(-115,1);
+			this->character.focus_y = FIXED_DEC(18,1);	
+			this->character.focus_zoom = FIXED_DEC(710,512);
 		}
 	}
 	
@@ -151,7 +163,7 @@ Character *Char_LoggoP_New(fixed_t x, fixed_t y)
 	
 	this->character.focus_x = FIXED_DEC(-1,1);
 	this->character.focus_y = FIXED_DEC(15,1);
-	this->character.focus_zoom = FIXED_DEC(357,512);
+	this->character.focus_zoom = FIXED_DEC(487,512);
 	
 	this->character.size = FIXED_DEC(1,1);
 	

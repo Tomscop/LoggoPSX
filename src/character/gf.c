@@ -41,8 +41,7 @@ typedef struct
 //GF character definitions
 static const CharFrame char_gf_frame[] = {
 	{GF_ArcMain_Loggo, {  0,  0,120, 82}, {  0,  0}}, //0 bop left
-	
-	{GF_ArcMain_Loggo, {121,  0,113, 82}, {  0,  0}}, //1 bop right
+	{GF_ArcMain_Loggo, {121,  0,120, 82}, {  0,  0}}, //1 bop right
 	
 	{GF_ArcMain_GF2, {  0,   0,  73, 100}, { 34,  71}}, //2 cry 1
 	{GF_ArcMain_GF2, { 74,   0,  73, 102}, { 35,  72}}, //3 cry 2
