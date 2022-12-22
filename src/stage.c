@@ -1184,14 +1184,14 @@ static void Stage_CountDown(void)
 			break;
 	}
 
-	RECT ready_src = {  0,  0,114, 55};	
-	RECT_FIXED ready_dst = {FIXED_DEC(-114,1), FIXED_DEC(-55,1), FIXED_DEC(114 * 2,1), FIXED_DEC(55 * 2,1)};	
+	RECT ready_src = {  0,  0,142, 68};	
+	RECT_FIXED ready_dst = {FIXED_DEC(-89,1), FIXED_DEC(-43,1), FIXED_DEC(142 * 125,100), FIXED_DEC(68 * 125,100)};	
 
-	RECT set_src = {  0, 55, 94, 44};	
-	RECT_FIXED set_dst = {FIXED_DEC(-94,1), FIXED_DEC(-44,1), FIXED_DEC(94 * 2,1), FIXED_DEC(44 * 2,1)};	
+	RECT set_src = {  0, 69,132, 61};	
+	RECT_FIXED set_dst = {FIXED_DEC(-83,1), FIXED_DEC(-38,1), FIXED_DEC(132 * 125,100), FIXED_DEC(61 * 125,100)};	
 
-	RECT go_src = {115,  0, 46, 35};	
-	RECT_FIXED go_dst = {FIXED_DEC(-46,1), FIXED_DEC(-35,1), FIXED_DEC(46 * 2,1), FIXED_DEC(35 * 2,1)};	
+	RECT go_src = {  0,131, 58, 45};	
+	RECT_FIXED go_dst = {FIXED_DEC(-36,1), FIXED_DEC(-28,1), FIXED_DEC(58 * 125,100), FIXED_DEC(45 * 125,100)};	
 
 	if (drawshit == 3 && stage.song_step >= -15 && stage.song_step <= -12)
 		Stage_DrawTex(&stage.tex_count, &ready_src, &ready_dst, stage.bump);
