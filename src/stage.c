@@ -412,8 +412,16 @@ static void CheckNewScore()
 {
 	if (stage.mode == StageMode_Normal && !stage.prefs.botplay && !stage.prefs.practice && timer.timermin == 0 && timer.timer <= 5)
 	{
-		if (stage.player_state[0].score >= stage.prefs.savescore[stage.stage_id][stage.stage_diff])
-			stage.prefs.savescore[stage.stage_id][stage.stage_diff] = stage.player_state[0].score;			
+		if (stage.stage_id == StageId_1_2)
+		{
+			if (stage.player_state[0].score >= stage.prefs.savescore[stage.stage_id][stage.stage_diff])
+				stage.prefs.savescore[StageId_1_1][stage.stage_diff] = stage.player_state[0].score;			
+		}
+		else	
+		{
+			if (stage.player_state[0].score >= stage.prefs.savescore[stage.stage_id][stage.stage_diff])
+				stage.prefs.savescore[stage.stage_id][stage.stage_diff] = stage.player_state[0].score;			
+		}
 	}
 }
 
