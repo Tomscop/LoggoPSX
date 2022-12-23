@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Defines the ISO project -->
-<iso_project image_name="secretchristmasport.bin" cue_sheet="secretchristmasport.cue" no_xa="0">
+<iso_project image_name="loggo.bin" cue_sheet="loggo.cue" no_xa="0">
 	<!-- Data track -->
 	<track type="data">
 		<!-- Identifiers -->

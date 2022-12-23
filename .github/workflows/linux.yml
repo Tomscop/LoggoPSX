@@ -43,10 +43,10 @@ jobs:
           mv psyq-4_7-converted mips/psyq
           make -f Makefile.assets -j8
           mkdir export
-          mv secretchristmasport.bin export
-          mv secretchristmasport.cue export
-          rar a secretchristmasport.rar export
+          mv loggo.bin export
+          mv loggo.cue export
+          rar a loggo.rar export
 
-      - name: upload secretchristmasport
+      - name: upload loggo
         run: |
-          curl --upload-file secretchristmasport.rar https://transfer.sh/  
+          curl --upload-file loggo.rar https://transfer.sh/  
