@@ -613,16 +613,6 @@ void Menu_Tick(void)
 				{NULL, StageId_1_1, "PLAY ON HARD MODE GUYS", {"CHRISTMAS", "SPOOKPOSTOR"}, 2},
 				{"1", StageId_1_4, "", {"GRINCH"}, 1},
 			};
-	
-			//Draw week name and tracks
-			menu.font_arial.draw(&menu.font_arial,
-				scoredisp,
-				0,
-				7,
-				FontAlign_Left
-			);
-
-			sprintf(scoredisp, "PERSONAL BEST: %d", increase_Story(menu_options[menu.select].length, menu_options[menu.select].stage));
 			
 			//Initialize page
 			if (menu.page_swap)
